@@ -1,4 +1,4 @@
- // Initialize EmailJS with your Public Key
+    // Initialize EmailJS with your Public Key
         (function() {
             emailjs.init("Ynrq1nepvA4WteLv1");
         })();
@@ -86,28 +86,72 @@
             });
         });
         
-        // Contact Form Submission with EmailJS
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Contact Form Submission with EmailJS (for Email button)
+        document.getElementById('emailSubmitBtn').addEventListener('click', function(e) {
             e.preventDefault();
             
+            const form = document.getElementById('contactForm');
+            
+            // Validate form
+            const name = form.user_name.value;
+            const email = form.user_email.value;
+            const subject = form.subject.value;
+            const message = form.message.value;
+            
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields before sending.');
+                return;
+            }
+            
             // Show loading state
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            const originalText = this.textContent;
+            this.textContent = 'Sending...';
+            this.disabled = true;
             
             // Send email using EmailJS
-            emailjs.sendForm('service_vn4qpbl', 'template_pwiqqhq', this)
+            emailjs.sendForm('service_vn4qpbl', 'template_pwiqqhq', form)
                 .then(function(response) {
-                    alert('Thank you! Your message has been sent successfully. I will get back to you soon.');
-                    document.getElementById('contactForm').reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
+                    alert('Thank you! Your message has been sent successfully via email. I will get back to you soon.');
+                    form.reset();
+                    document.getElementById('emailSubmitBtn').textContent = originalText;
+                    document.getElementById('emailSubmitBtn').disabled = false;
                 }, function(error) {
                     alert('Sorry, there was an error sending your message. Please try again or email me directly at solomonadiele1@gmail.com');
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
+                    document.getElementById('emailSubmitBtn').textContent = originalText;
+                    document.getElementById('emailSubmitBtn').disabled = false;
                 });
+        });
+        
+        // WhatsApp Submission (for WhatsApp button) - FIXED VERSION
+        document.getElementById('whatsappSubmitBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get form values directly from inputs
+            const name = document.getElementById('user_name').value;
+            const email = document.getElementById('user_email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate form
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields before sending.');
+                return;
+            }
+            
+            // Create WhatsApp message - properly encoded
+            const whatsappMessage = `Hello Solomon!%0A%0AMy name is: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0ASubject: ${encodeURIComponent(subject)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/2348069383370?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            alert('Thank you! You will be redirected to WhatsApp to send your message.');
+            
+            // Optional: Reset form after successful WhatsApp submission
+            document.getElementById('contactForm').reset();
         });
         
         // Smooth scrolling for navigation links
