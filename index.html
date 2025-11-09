@@ -8,10 +8,118 @@
     <!-- Add EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Additional styles for the CV buttons */
+        .cv-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cv-buttons .btn {
+            flex: 1;
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .whatsapp-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .whatsapp-modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .whatsapp-modal h3 {
+            color: #2d1b3d;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .whatsapp-modal p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .whatsapp-number {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+        
+        .whatsapp-number:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-number i {
+            margin-right: 8px;
+        }
+        
+        .modal-close {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+        
+        .modal-close:hover {
+            background: #ff5252;
+        }
+    </style>
 </head>
 <body>
     <!-- Background Pattern -->
     <div class="background-pattern"></div>
+
+    <!-- WhatsApp Modal -->
+    <div class="whatsapp-modal" id="whatsappModal">
+        <div class="whatsapp-modal-content">
+            <h3>Get My CV Document</h3>
+            <p>Contact me on WhatsApp to receive my complete CV document</p>
+            <a href="https://wa.me/2348069383370?text=Hello%20Solomon,%20I%20would%20like%20to%20get%20your%20CV%20document" 
+               class="whatsapp-number" target="_blank">
+                <i class="fab fa-whatsapp"></i> 08069383370
+            </a>
+            <p style="font-size: 0.9rem; margin-top: 15px; color: #888;">
+                Click the number above to message me directly on WhatsApp
+            </p>
+            <button class="modal-close" onclick="closeWhatsAppModal()">Close</button>
+        </div>
+    </div>
 
     <!-- Header & Navigation -->
     <header>
@@ -90,12 +198,21 @@
                         </div>
                     </div>
                     
-                    <a href="./assets/documents/Solomon-Adiele-CV.docx" class="btn" style="margin-top: 20px;">Download CV</a>
+                    <!-- Updated: Two buttons for View CV and Download CV -->
+                    <div class="cv-buttons">
+                        <a href="Solomon-Adiele-CV.html" class="btn">
+                            <i class="fas fa-eye"></i> View CV
+                        </a>
+                        <button class="btn btn-secondary" onclick="openWhatsAppModal()">
+                            <i class="fas fa-download"></i> Download CV
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Rest of your existing code remains the same -->
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
@@ -358,5 +475,29 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // WhatsApp Modal Functions
+        function openWhatsAppModal() {
+            document.getElementById('whatsappModal').style.display = 'flex';
+        }
+        
+        function closeWhatsAppModal() {
+            document.getElementById('whatsappModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('whatsappModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWhatsAppModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeWhatsAppModal();
+            }
+        });
+    </script>
 </body>
 </html>

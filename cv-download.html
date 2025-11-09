@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solomon Adiele CV Download</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; background-color: #f5f5f5; }
+        .cv-content { max-width: 800px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); position: relative; }
+        .name { font-size: 28px; font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
+        .title { font-size: 18px; color: #3498db; margin-bottom: 20px; }
+        .section { margin-bottom: 25px; }
+        .section-title { font-size: 16px; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-bottom: 15px; }
+        .contact-info { margin-bottom: 20px; }
+        .job { margin-bottom: 20px; }
+        .job-title { font-weight: bold; color: #2c3e50; }
+        .company { font-style: italic; }
+        .date { float: right; color: #7f8c8d; }
+        ul { margin: 10px 0; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        
+        /* Download Button Styles */
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffd700;
+            color: #2c3e50;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .download-btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .download-btn i {
+            font-size: 18px;
+        }
+        
+        .download-text {
+            margin-bottom: 15px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .print-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .print-btn:hover {
+            background: white;
+            color: #764ba2;
+        }
+        
+        @media print {
+            .download-section {
+                display: none;
+            }
+            body {
+                background: white;
+                margin: 0;
+            }
+            .cv-content {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cv-content">
+        <!-- Download Section -->
+        <div class="download-section">
+            <p class="download-text">Download a printable version of my CV</p>
+            <button class="download-btn" onclick="downloadCV()">
+                <i class="fas fa-download"></i>
+                Download CV as PDF
+            </button>
+            <button class="print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i>
+                Print CV
+            </button>
+        </div>
+        
+        <div class="name">SOLOMON ADIELE</div>
+        <div class="title">Full-Stack Developer</div>
+        
+        <div class="contact-info">
+            <strong>Phone:</strong> 08069383370, 08127890779 | 
+            <strong>Email:</strong> solomonadiele1@gmail.com | 
+            <strong>Location:</strong> Abia State, Nigeria
+        </div>
+
+        <div class="section">
+            <div class="section-title">PROFESSIONAL PROFILE</div>
+            <p>A dedicated and passionate Full-Stack Developer with a strong background in computer science, seeking to contribute technical expertise and professional skills to drive organizational growth and development through innovation, integrity, and excellence.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">WORK EXPERIENCE</div>
+            
+            <div class="job">
+                <span class="job-title">Payroll Specialist / Salary Account Officer</span>
+                <span class="date">March 2023 - May 2025</span><br>
+                <span class="company">Inner Galaxy Steel Company Limited</span>
+                <ul>
+                    <li>Managed payroll operations ensuring accuracy and timely disbursement</li>
+                    <li>Handled salary accounts and financial records for employees</li>
+                    <li>Implemented efficient payroll processing systems</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <span class="job-title">Class Teacher / Form Master</span>
+                <span class="date">July 2022 - December 2022</span><br>
+                <span class="company">Unibek Group of Schools, Port Harcourt</span>
+                <ul>
+                    <li>Provided classroom instruction and educational guidance</li>
+                    <li>Served as Form Master providing student support and mentorship</li>
+                    <li>Developed and implemented effective teaching strategies</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <span class="job-title">Class Teacher</span>
+                <span class="date">July 2021 - July 2022</span><br>
+                <span class="company">Community Primary School Zarama, Bayelsa State</span>
+                <ul>
+                    <li>Delivered comprehensive classroom instruction</li>
+                    <li>Provided educational support to primary school students</li>
+                    <li>Created engaging learning environments</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <span class="job-title">ICT Staff Worker</span>
+                <span class="date">July 2019 - January 2020</span><br>
+                <span class="company">Rivers State Television (RSTV)</span>
+                <ul>
+                    <li>Gained practical experience in technology operations and support</li>
+                    <li>Assisted in ICT department functions and technical tasks</li>
+                    <li>Developed foundational IT support skills</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">EDUCATION</div>
+            
+            <div class="job">
+                <span class="job-title">Full-Stack Developer (Postgraduate)</span>
+                <span class="date">2025</span><br>
+                <span class="company">Babcock University, Ilishan Remo, Ogun State</span>
+            </div>
+
+            <div class="job">
+                <span class="job-title">BSc Computer Science</span>
+                <span class="date">2017 - 2020</span><br>
+                <span class="company">Clifford University, Ihie, Abia State</span>
+            </div>
+
+            <div class="job">
+                <span class="job-title">Diploma in Computer Training</span>
+                <span class="date">2016</span><br>
+                <span class="company">Ever Great Computers, Omoba, Abia State</span>
+            </div>
+
+            <div class="job">
+                <span class="job-title">SSCE</span>
+                <span class="date">2009 - 2015</span><br>
+                <span class="company">Lucy Memorial Secondary School, Amiri, Abia State</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">TECHNICAL SKILLS</div>
+            <p><strong>Development:</strong> Full-Stack Development, System Formatting, Windows Installation<br>
+            <strong>Software:</strong> Video Editing, Microsoft Office Suite</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PROFESSIONAL SKILLS</div>
+            <p>Team Leadership, Mentoring & Development, Problem Solving, Communication, Payroll Management, Teaching & Instruction</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PERSONAL DETAILS</div>
+            <p><strong>Date of Birth:</strong> 12th March 1997 | <strong>Gender:</strong> Male | <strong>Marital Status:</strong> Single<br>
+            <strong>State of Origin:</strong> Abia State | <strong>Nationality:</strong> Nigerian</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">REFERENCES</div>
+            <p>Available upon request</p>
+        </div>
+    </div>
+
+    <script>
+        function downloadCV() {
+            // Create a temporary link to trigger download
+            const link = document.createElement('a');
+            link.href = './assets/documents/Solomon-Adiele-CV.docx'; // Update this path to your actual CV file
+            link.download = 'Solomon-Adiele-CV.docx';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show success message
+            alert('CV download started! If the download doesn\'t start automatically, please check your downloads folder.');
+        }
+        
+        // Alternative method using fetch (if you want to handle errors)
+        async function downloadCVAlternative() {
+            try {
+                const response = await fetch('./assets/documents/Solomon-Adiele-CV.docx');
+                if (!response.ok) {
+                    throw new Error('CV file not found');
+                }
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Solomon-Adiele-CV.docx';
+                document.body.appendChild(link);
+                link.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(link);
+            } catch (error) {
+                alert('Sorry, the CV file is not available for download at the moment. Please contact me directly.');
+                console.error('Download error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
