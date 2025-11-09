@@ -1,23 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Solomon Adiele CV Download</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solomon Adiele - Full-Stack Developer</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; background-color: #f5f5f5; }
-        .cv-content { max-width: 800px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); position: relative; }
-        .name { font-size: 28px; font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
-        .title { font-size: 18px; color: #3498db; margin-bottom: 20px; }
-        .section { margin-bottom: 25px; }
-        .section-title { font-size: 16px; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-bottom: 15px; }
-        .contact-info { margin-bottom: 20px; }
-        .job { margin-bottom: 20px; }
-        .job-title { font-weight: bold; color: #2c3e50; }
-        .company { font-style: italic; }
-        .date { float: right; color: #7f8c8d; }
-        ul { margin: 10px 0; padding-left: 20px; }
-        li { margin-bottom: 5px; }
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+        }
+        
+        /* Left Column - Personal Info & Skills */
+        .left-column {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            padding: 40px 30px;
+        }
+        
+        /* Right Column - Main Content */
+        .right-column {
+            flex: 2;
+            padding: 40px 30px;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .name {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light);
+            font-weight: 600;
+        }
+        
+        .section-title.left {
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .personal-statement {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 20px;
+        }
+        
+        .education-header, .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .degree, .position {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .date {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .institution, .company {
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+        
+        .location {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .skills-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 3px;
+            color: var(--primary);
+        }
+        
+        .personal-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .detail-item {
+            margin-bottom: 10px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .detail-value {
+            font-size: 0.9rem;
+        }
         
         /* Download Button Styles */
         .download-section {
@@ -87,139 +268,262 @@
                 background: white;
                 margin: 0;
             }
-            .cv-content {
+            .cv-container {
                 box-shadow: none;
-                padding: 20px;
+                margin: 0;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="cv-content">
-        <!-- Download Section -->
-        <div class="download-section">
-            <p class="download-text">Download a printable version of my CV</p>
-            <button class="download-btn" onclick="downloadCV()">
-                <i class="fas fa-download"></i>
-                Download CV as PDF
-            </button>
-            <button class="print-btn" onclick="window.print()">
-                <i class="fas fa-print"></i>
-                Print CV
-            </button>
+    <!-- Download Section -->
+    <div class="download-section">
+        <p class="download-text">Download a printable version of my CV</p>
+        <button class="download-btn" onclick="downloadCV()">
+            <i class="fas fa-download"></i>
+            Download CV as PDF
+        </button>
+        <button class="print-btn" onclick="window.print()">
+            <i class="fas fa-print"></i>
+            Print CV
+        </button>
+    </div>
+    
+    <div class="cv-container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="profile-header">
+                <h1 class="name">SOLOMON CHIMEREUCHEYA ADIELE</h1>
+                <p class="title">Full-Stack Developer</p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title left">CONTACT</h3>
+                <div class="contact-info" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>08069383370, 08127890779</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>solomonadiele1@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Abia State, Nigeria</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title left">PERSONAL DETAILS</h3>
+                <div class="personal-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Date of Birth</div>
+                        <div class="detail-value">12th March 1997</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Place of Birth</div>
+                        <div class="detail-value">Aba, Abia State</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Gender</div>
+                        <div class="detail-value">Male</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Marital Status</div>
+                        <div class="detail-value">Single</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">State of Origin</div>
+                        <div class="detail-value">Abia State</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">LGA</div>
+                        <div class="detail-value">Obingwa</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Hometown</div>
+                        <div class="detail-value">Eziama Mgboko</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Nationality</div>
+                        <div class="detail-value">Nigerian</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Religion</div>
+                        <div class="detail-value">Christianity</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title left">TECHNICAL SKILLS</h3>
+                <div class="skill-category">
+                    <h4>Development</h4>
+                    <span class="tag">Full-Stack Development</span>
+                    <span class="tag">System Formatting</span>
+                    <span class="tag">Windows Installation</span>
+                </div>
+                <div class="skill-category">
+                    <h4>Software</h4>
+                    <span class="tag">Video Editing</span>
+                    <span class="tag">Microsoft Office Suite</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title left">PROFESSIONAL SKILLS</h3>
+                <ul class="skills-list">
+                    <li>Team Leadership</li>
+                    <li>Mentoring & Development</li>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Payroll Management</li>
+                    <li>Teaching & Instruction</li>
+                </ul>
+            </div>
         </div>
         
-        <div class="name">SOLOMON ADIELE</div>
-        <div class="title">Full-Stack Developer</div>
-        
-        <div class="contact-info">
-            <strong>Phone:</strong> 08069383370, 08127890779 | 
-            <strong>Email:</strong> solomonadiele1@gmail.com | 
-            <strong>Location:</strong> Abia State, Nigeria
-        </div>
-
-        <div class="section">
-            <div class="section-title">PROFESSIONAL PROFILE</div>
-            <p>A dedicated and passionate Full-Stack Developer with a strong background in computer science, seeking to contribute technical expertise and professional skills to drive organizational growth and development through innovation, integrity, and excellence.</p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">WORK EXPERIENCE</div>
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="section">
+                <h3 class="section-title">PROFESSIONAL PROFILE</h3>
+                <p class="personal-statement">
+                    A dedicated and passionate Full-Stack Developer with a strong background in computer science, 
+                    seeking to contribute technical expertise and professional skills to drive organizational growth 
+                    and development through innovation, integrity, and excellence.
+                </p>
+            </div>
             
-            <div class="job">
-                <span class="job-title">Payroll Specialist / Salary Account Officer</span>
-                <span class="date">March 2023 - May 2025</span><br>
-                <span class="company">Inner Galaxy Steel Company Limited</span>
-                <ul>
-                    <li>Managed payroll operations ensuring accuracy and timely disbursement</li>
-                    <li>Handled salary accounts and financial records for employees</li>
-                    <li>Implemented efficient payroll processing systems</li>
-                </ul>
+            <div class="section">
+                <h3 class="section-title">WORK EXPERIENCE</h3>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="position">Payroll Specialist / Salary Account Officer</div>
+                        <div class="date">Mar 2023 - May 2025</div>
+                    </div>
+                    <div class="company">Inner Galaxy Steel Company Limited</div>
+                    <ul class="skills-list">
+                        <li>Managed payroll operations ensuring accuracy and timely disbursement</li>
+                        <li>Handled salary accounts and financial records for employees</li>
+                        <li>Implemented efficient payroll processing systems</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="position">Class Teacher / Form Master</div>
+                        <div class="date">Jul 2022 - Dec 2022</div>
+                    </div>
+                    <div class="company">Unibek Group of Schools, Port Harcourt</div>
+                    <ul class="skills-list">
+                        <li>Provided classroom instruction and educational guidance</li>
+                        <li>Served as Form Master providing student support and mentorship</li>
+                        <li>Developed and implemented effective teaching strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="position">Class Teacher</div>
+                        <div class="date">Jul 2021 - Jul 2022</div>
+                    </div>
+                    <div class="company">Community Primary School Zarama, Bayelsa State</div>
+                    <ul class="skills-list">
+                        <li>Delivered comprehensive classroom instruction</li>
+                        <li>Provided educational support to primary school students</li>
+                        <li>Created engaging learning environments</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="position">ICT Staff Worker</div>
+                        <div class="date">Jul 2019 - Jan 2020</div>
+                    </div>
+                    <div class="company">Rivers State Television (RSTV)</div>
+                    <ul class="skills-list">
+                        <li>Gained practical experience in technology operations and support</li>
+                        <li>Assisted in ICT department functions and technical tasks</li>
+                        <li>Developed foundational IT support skills</li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="job">
-                <span class="job-title">Class Teacher / Form Master</span>
-                <span class="date">July 2022 - December 2022</span><br>
-                <span class="company">Unibek Group of Schools, Port Harcourt</span>
-                <ul>
-                    <li>Provided classroom instruction and educational guidance</li>
-                    <li>Served as Form Master providing student support and mentorship</li>
-                    <li>Developed and implemented effective teaching strategies</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <span class="job-title">Class Teacher</span>
-                <span class="date">July 2021 - July 2022</span><br>
-                <span class="company">Community Primary School Zarama, Bayelsa State</span>
-                <ul>
-                    <li>Delivered comprehensive classroom instruction</li>
-                    <li>Provided educational support to primary school students</li>
-                    <li>Created engaging learning environments</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <span class="job-title">ICT Staff Worker</span>
-                <span class="date">July 2019 - January 2020</span><br>
-                <span class="company">Rivers State Television (RSTV)</span>
-                <ul>
-                    <li>Gained practical experience in technology operations and support</li>
-                    <li>Assisted in ICT department functions and technical tasks</li>
-                    <li>Developed foundational IT support skills</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">EDUCATION</div>
             
-            <div class="job">
-                <span class="job-title">Full-Stack Developer (Postgraduate)</span>
-                <span class="date">2025</span><br>
-                <span class="company">Babcock University, Ilishan Remo, Ogun State</span>
+            <div class="section">
+                <h3 class="section-title">EDUCATION</h3>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="degree">Full-Stack Developer (Postgraduate)</div>
+                        <div class="date">2025</div>
+                    </div>
+                    <div class="institution">Babcock University, Ilishan Remo, Ogun State</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="degree">BSc Computer Science</div>
+                        <div class="date">2017 - 2020</div>
+                    </div>
+                    <div class="institution">Clifford University, Ihie, Abia State</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="degree">Diploma in Computer Training</div>
+                        <div class="date">2016</div>
+                    </div>
+                    <div class="institution">Ever Great Computers, Omoba, Abia State</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="degree">SSCE</div>
+                        <div class="date">2009 - 2015</div>
+                    </div>
+                    <div class="institution">Lucy Memorial Secondary School, Amiri, Abia State</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="degree">First School Leaving Certificate</div>
+                        <div class="date">2002 - 2009</div>
+                    </div>
+                    <div class="institution">C.P.S Eziama Mgboko, Obingwa L.G.A, Abia State</div>
+                </div>
             </div>
-
-            <div class="job">
-                <span class="job-title">BSc Computer Science</span>
-                <span class="date">2017 - 2020</span><br>
-                <span class="company">Clifford University, Ihie, Abia State</span>
+            
+            <div class="section">
+                <h3 class="section-title">CERTIFICATIONS</h3>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="degree">NYSC Discharge Certificate</div>
+                        <div class="date">2021 - 2022</div>
+                    </div>
+                </div>
             </div>
-
-            <div class="job">
-                <span class="job-title">Diploma in Computer Training</span>
-                <span class="date">2016</span><br>
-                <span class="company">Ever Great Computers, Omoba, Abia State</span>
+            
+            <div class="section">
+                <h3 class="section-title">REFERENCES</h3>
+                <p>Available upon request</p>
             </div>
-
-            <div class="job">
-                <span class="job-title">SSCE</span>
-                <span class="date">2009 - 2015</span><br>
-                <span class="company">Lucy Memorial Secondary School, Amiri, Abia State</span>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">TECHNICAL SKILLS</div>
-            <p><strong>Development:</strong> Full-Stack Development, System Formatting, Windows Installation<br>
-            <strong>Software:</strong> Video Editing, Microsoft Office Suite</p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PROFESSIONAL SKILLS</div>
-            <p>Team Leadership, Mentoring & Development, Problem Solving, Communication, Payroll Management, Teaching & Instruction</p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PERSONAL DETAILS</div>
-            <p><strong>Date of Birth:</strong> 12th March 1997 | <strong>Gender:</strong> Male | <strong>Marital Status:</strong> Single<br>
-            <strong>State of Origin:</strong> Abia State | <strong>Nationality:</strong> Nigerian</p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">REFERENCES</div>
-            <p>Available upon request</p>
         </div>
     </div>
 
