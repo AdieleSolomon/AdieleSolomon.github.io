@@ -1,4 +1,4 @@
-        // Initialize EmailJS with your Public Key
+ // Initialize EmailJS with your Public Key
         (function() {
             emailjs.init("Ynrq1nepvA4WteLv1");
         })();
@@ -37,19 +37,52 @@
                 });
             });
         });
+
+        // WhatsApp Modal Functions
+        function openWhatsAppModal() {
+            document.getElementById('whatsappModal').style.display = 'flex';
+        }
         
-        // Project link handlers
-        document.querySelectorAll('.demo-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('This project demo will be available soon!');
-            });
+        function closeWhatsAppModal() {
+            document.getElementById('whatsappModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('whatsappModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWhatsAppModal();
+            }
         });
         
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeWhatsAppModal();
+            }
+        });
+        
+        // Project link handlers - only prevent default for placeholder links
+        document.querySelectorAll('.demo-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only prevent default for links that don't have valid href attributes
+                if (this.getAttribute('href') === '#' || !this.getAttribute('href')) {
+                    e.preventDefault();
+                    alert('This project demo will be available soon!');
+                }
+                // Allow links with actual URLs to work normally
+            });
+        });
+
         document.querySelectorAll('.github-link').forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Source code will be available on GitHub soon!');
+                const href = this.getAttribute('href');
+                
+                // Only prevent default for empty or placeholder links
+                if (!href || href === '#' || href === '') {
+                    e.preventDefault();
+                    alert('Source code will be available on GitHub soon!');
+                }
+                // Allow the GitHub link that has a real URL to work normally
             });
         });
         
