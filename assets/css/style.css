@@ -183,7 +183,9 @@ nav {
 
 .tagline {
     color: var(--text-light);
-    font-size: 12px;
+    font-size: 15px;
+    text-shadow: #25D366 1px 1px 2px;
+    font-display: bold;
     margin-top: 3px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -232,6 +234,54 @@ nav {
     cursor: pointer;
     color: var(--accent);
 }
+
+
+/* ============================= */
+/*        CLICKABLE PHONE & EMAIL */
+/* ============================= */
+.clickable-phone, .clickable-email {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px dotted var(--accent);
+}
+
+.clickable-phone:hover, .clickable-email:hover {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+}
+
+.clickable-phone::after, .clickable-email::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.clickable-phone:hover::after, .clickable-email:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 5px);
+}
+
+/* Ensure the clickable elements don't break the layout */
+.info-item a, .contact-text a {
+    display: inline-block;
+}
+
 
 /* ============================= */
 /*        HERO SECTION           */
