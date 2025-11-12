@@ -1298,3 +1298,57 @@
                 width: 95%;
             }
         }
+
+        @media (max-width: 320px) {
+            .hero {
+                padding: 100px 10px 40px;
+            }
+
+            .hero-btns .btn {
+                width: 180px;
+            }
+
+            .about-content {
+                gap: 20px;
+            }
+
+            .projects-grid {
+                gap: 15px;
+            }
+
+            .project-card {
+                padding: 10px;
+            }
+
+            .contact-container {
+                gap: 20px;
+            }
+
+            .contact-form-buttons {
+                gap: 12px;
+            }
+
+            .cv-buttons {
+                gap: 12px;
+            }
+
+            .cv-container {
+                gap: 15px;
+            }
+
+            .cv-title {
+                font-size: 1.2rem;
+            }
+
+            .cv-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .cv-section-title {
+                font-size: 1.1rem;
+            }
+
+            .cv-section-subtitle {
+                font-size: 0.9rem;
+            }
+        }
