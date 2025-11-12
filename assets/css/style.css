@@ -133,11 +133,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
+    position: relative;
 }
 
 .logo-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    flex: 1;
 }
 
 .logo {
@@ -233,8 +236,12 @@ nav {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--accent);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
 }
-
 
 /* ============================= */
 /*        CLICKABLE PHONE & EMAIL */
@@ -281,7 +288,6 @@ nav {
 .info-item a, .contact-text a {
     display: inline-block;
 }
-
 
 /* ============================= */
 /*        HERO SECTION           */
@@ -653,7 +659,6 @@ nav {
     border: 2px solid rgba(139, 115, 85, 0.3);
 }
 
-
 /* ============================= */
 /*        EDUCATION SECTION      */
 /* ============================= */
@@ -816,12 +821,6 @@ nav {
 
 .btn-whatsapp:hover {
     background-color: #128C7E;
-}
-
-@media (max-width: 768px) {
-    .contact-form-buttons {
-        flex-direction: column;
-    }
 }
 
 .modal-close {
@@ -1089,7 +1088,7 @@ footer {
 }
 
 /* ============================= */
-/*        RESPONSIVE STYLES      */
+/*        MOBILE RESPONSIVE      */
 /* ============================= */
 @media (max-width: 1200px) {
     .education-container {
@@ -1132,22 +1131,60 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* Header & Navigation */
+    header {
+        padding: 10px 0;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    .logo-container {
+        text-align: center;
+        order: 2;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .logo {
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+        margin-top: 5px;
+        letter-spacing: 1px;
+    }
+    
     .menu-toggle {
         display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        order: 1;
+        align-self: flex-end;
+        font-size: 1.5rem;
+        z-index: 1001;
     }
     
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
+        width: 80%;
+        height: 100vh;
         background: linear-gradient(135deg, #4a2c5a 0%, #3d1a4f 100%);
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding-top: 50px;
         transition: left 0.3s ease;
         z-index: 999;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
     }
     
     .nav-links.active {
@@ -1155,24 +1192,119 @@ footer {
     }
     
     .nav-links li {
-        margin: 15px 0;
+        margin: 20px 0;
     }
     
-    h1 {
-        font-size: 2.2rem;
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 10px 20px;
     }
     
-    h2 {
-        font-size: 1.8rem;
+    /* Hero Section */
+    .hero {
+        padding: 120px 0 60px;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
     }
     
     .hero-btns {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
     
     .hero-btns .btn {
         width: 200px;
+    }
+    
+    /* About Section */
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-img {
+        min-height: 300px;
+    }
+    
+    .personal-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+    
+    .info-label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .cv-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Experience Section */
+    .timeline:before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 50px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        margin-left: 0;
+        padding-left: 50px;
+    }
+    
+    .timeline-content:after {
+        display: none;
+    }
+    
+    .tech-stack {
+        justify-content: flex-start;
+    }
+    
+    /* Education Section */
+    .education-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Projects Section */
+    .projects-filter {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .project-links {
@@ -1180,17 +1312,95 @@ footer {
         gap: 8px;
     }
     
-    .education-container {
+    /* Contact Section */
+    .contact-container {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Footer */
+    .social-links {
+        gap: 15px;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
     }
 }
 
+/* Extra small devices */
 @media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    .hero {
+        padding: 100px 0 50px;
+    }
+    
+    .about-img {
+        min-height: 250px;
+    }
+    
+    .timeline-item {
+        padding-left: 40px;
+    }
+    
+    .timeline:before {
+        left: 15px;
+    }
+    
     .education-container {
         grid-template-columns: 1fr;
     }
     
     .education-item {
         padding: 20px;
+    }
+}
+
+/* Medium devices */
+@media (min-width: 769px) and (max-width: 992px) {
+    .logo-container {
+        text-align: center;
+    }
+    
+    .logo {
+        justify-content: center;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    .nav-links {
+        display: flex;
     }
 }
