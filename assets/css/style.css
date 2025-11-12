@@ -229,28 +229,25 @@ nav {
 }
 
 .menu-toggle {
-    display: none; /* kept hidden on desktop */
-    width: 44px;
-    height: 44px;
+    display: inline-block;
+    position: relative;
     background: transparent;
     border: none;
     cursor: pointer;
-    position: relative;
     color: var(--accent);
-    -webkit-tap-highlight-color: transparent;
+    z-index: 1100;
 }
 
-/* show a vertical ellipsis (three stacked dots) */
-.menu-toggle::before {
-    content: "⋮";
-    font-size: 1.6rem;
-    line-height: 44px;
-    color: var(--accent);
-    display: block;
-    text-align: center;
+.menu-toggle .desktop-only {
+    display: inline-block;
+    font-size: 1.4rem;
 }
 
-/* hide any existing hamburger icon inside the toggle (if markup uses an <i> element) */
+.menu-toggle .mobile-only {
+    display: none;
+}
+
+/* ensure any older icon-hiding rules don't conflict */
 .menu-toggle .fa-bars,
 .menu-toggle .fas.fa-bars,
 .menu-toggle .fa,
@@ -258,15 +255,33 @@ menu-toggle svg {
     display: none;
 }
 
+/* mobile: hide hamburger, show vertical ellipsis and fix top-right position */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
         position: absolute;
-        right: 20px;
-        top: 20px;
-        transform: none;
-        z-index: 1100;
+        right: 16px;
+        top: 16px;
+        padding: 8px;
     }
+    
+    .menu-toggle .desktop-only {
+        display: none !important;
+    }
+    
+    .menu-toggle .mobile-only {
+        display: inline-block !important;
+        font-size: 1.4rem;
+    }
+}
+
+/* optional: small hit area for easier tapping */
+.menu-toggle {
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ============================= */
@@ -1167,10 +1182,18 @@ footer {
     .menu-toggle {
         display: block;
         position: absolute;
-        right: 20px;
-        top: 20px;
-        transform: none;
-        z-index: 1100;
+        right: 16px;
+        top: 16px;
+        padding: 8px;
+    }
+    
+    .menu-toggle .desktop-only {
+        display: none !important;
+    }
+    
+    .menu-toggle .mobile-only {
+        display: inline-block !important;
+        font-size: 1.4rem;
     }
     
     .nav-links {
