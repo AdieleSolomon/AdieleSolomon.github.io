@@ -1,4 +1,4 @@
-        /* ============================= */
+/* ============================= */
         /*        BASE STYLES            */
         /* ============================= */
         :root {
@@ -1076,10 +1076,39 @@
             padding: 40px 0;
             text-align: center;
             border-top: 2px solid var(--accent);
+
+            /* center all footer content */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
         .footer-logo {
             margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-logo span {
+            color: var(--text-light);
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .footer-logo span:last-child {
+            margin-left: 0;
+            color: var(--text);
+        }
+
+        .name-line-footer {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
         }
 
         .social-links {
